@@ -1,0 +1,18 @@
+[package]
+name = "cdby"
+version = "0.0.1"
+edition = "2021"
+
+[dependencies]
+walkdir = "2"
+nix="0.26.2"
+regex = "1"
+
+[dependencies.clap]
+version = "4.1.4"
+features = ["suggestions", "color", "wrap_help", "cargo", "unstable-grouped", "derive"]
+
+[[bin]]
+bench = false
+path = "src/main.rs"
+name = "cdby"
