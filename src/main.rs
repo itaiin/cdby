@@ -1,7 +1,6 @@
 use regex::Regex;
 use std::ffi::CString;
 use nix::unistd::execv;
-use walkdir::WalkDir;
 use clap::Parser;
 
 #[derive(Parser, Debug)]
@@ -24,7 +23,7 @@ fn to_cstr(s: &str) -> CString {
 #[allow(unreachable_code)]
 fn do_it(args: Args) {
     let re = Regex::new(args.pattern.as_str()).unwrap();
-    for entry in WalkDir::new(args.root).into_iter().filter_map(|e| e.ok()) {
+    for entry in ignore::Walk::new(args.root).into_iter().filter_map(|e| e.ok()) {
         let path = entry.path();
         let path_str = path.to_str().unwrap();
         if re.is_match(path_str) {
