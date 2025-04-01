@@ -1,6 +1,6 @@
 [package]
 name = "cdby"
-version = "0.0.1"
+version = "0.0.2"
 edition = "2021"
 description = "A simple utility to find a file and drop to a shell next to it."
 authors = ["Itai <your-email@example.com>"]
